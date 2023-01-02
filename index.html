@@ -365,9 +365,9 @@
 
     {'nome':'RNN', 'descricao':'O projeto consiste em um gerador de texto utilizando uma rede neural recorrente (RNN) treinada com o framework Tensorflow 2.0. O dataset utilizado é um texto em inglês, que é pré-processado para remover caracteres indesejados e criar o vocabulário utilizado pelo modelo. O modelo é treinado para prever a próxima letra de uma sequência de entrada, e pode ser utilizado para gerar novas sequências de texto. As sequências de entrada e saída são geradas em batches para treinar o modelo de maneira mais eficiente. Além disso, um método é fornecido para gerar batches de maneira sequencial, de modo a preservar a ordem das sequências no texto original.', 'link_git':'https://github.com/arturkamimura/RNN_textos','link_site':'https://arturkamimura.github.io/portfolio/redes'},
 
-    {'nome':'facilite', 'descricao':'O site da administradora de condomínios é uma plataforma online onde os condôminos podem acessar informações importantes sobre o seu prédio, bem como gerenciar avisos, boletos e reservas de áreas comuns. Na página inicial, os condôminos podem encontrar informações sobre a administradora, notícias atualizadas e uma lista de áreas comuns que podem ser reservadas. Na área do condômino, é possível acessar o histórico de avisos e boletos, bem como realizar reservas de áreas comuns como salão de festas, quadra de esportes e piscina. O site também possui uma seção de contato, onde os condôminos podem entrar em contato com a administradora e esclarecer dúvidas ou fazer sugestões. Em resumo, o site da administradora de condomínios é uma ferramenta útil e prática para os condôminos, que podem gerenciar suas informações e acessar serviços importantes de forma rápida e fácil.', 'link_git':'https://github.com/arturkamimura/','link_site':'https://facilitecondominios.com.br/'},
+    {'nome':'facilite', 'descricao':'O site da administradora de condomínios é uma plataforma online onde os condôminos podem acessar informações importantes sobre o seu prédio, bem como gerenciar avisos, boletos e reservas de áreas comuns. Na página inicial, os condôminos podem encontrar informações sobre a administradora, notícias atualizadas e uma lista de áreas comuns que podem ser reservadas. Na área do condômino, é possível acessar o histórico de avisos e boletos, bem como realizar reservas de áreas comuns como salão de festas, quadra de esportes e piscina. O site também possui uma seção de contato, onde os condôminos podem entrar em contato com a administradora e esclarecer dúvidas ou fazer sugestões. Em resumo, o site da administradora de condomínios é uma ferramenta útil e prática para os condôminos, que podem gerenciar suas informações e acessar serviços importantes de forma rápida e fácil.', 'link_git':'nenhum','link_site':'https://facilitecondominios.com.br/'},
 
-    {'nome':'estudos', 'descricao':'Essa interface permite que as pessoas insiram links de vídeo aulas e PDFs e, em seguida, gera automaticamente uma interface de estudo que categoriza as disciplinas, separa as aulas e cria visualizadores de vídeos e PDFs. A interface de estudo é projetada para facilitar o estudo dessas aulas e PDFs, permitindo que os usuários acessem e visualize os materiais de maneira organizada e conveniente.', 'link_git':'https://github.com/arturkamimura/','link_site':'http://191.101.78.46:5002/'}
+    {'nome':'estudos', 'descricao':'Essa interface permite que as pessoas insiram links de vídeo aulas e PDFs e, em seguida, gera automaticamente uma interface de estudo que categoriza as disciplinas, separa as aulas e cria visualizadores de vídeos e PDFs. A interface de estudo é projetada para facilitar o estudo dessas aulas e PDFs, permitindo que os usuários acessem e visualize os materiais de maneira organizada e conveniente.', 'link_git':'nenhum','link_site':'http://191.101.78.46:5002/'}
   ]
   
   function mudar(id){
@@ -377,7 +377,14 @@
     var link_site = info.link_site
     document.getElementById("modal-cont").innerHTML = descricao;
     document.getElementById("botao_site").setAttribute("href", link_site);
-    document.getElementById("botao_git").setAttribute("href", link_git);
+    if (link_git == 'nenhum'){
+      document.getElementById('botao_git').setAttribute('hidden', true);
+    }
+    else{
+      document.getElementById('botao_git').removeAttribute('hidden');
+      document.getElementById("botao_git").setAttribute("href", link_git);
+    }
+    
   }
 </script>
 
